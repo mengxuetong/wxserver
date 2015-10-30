@@ -2,9 +2,6 @@ var http = require('http'),
     wechat = require('node-wechat')("mengxt");
 
 var server = http.createServer(function (req, res) {
-	http.request('url',function(){
-		
-	})
   //检验 token
   wechat.checkSignature(req, res);
   //预处理
