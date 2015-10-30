@@ -1,0 +1,16 @@
+{
+  "name": "wxserver",
+  "version": "0.0.1",
+  "description": "server is for weixin",
+  "main": "index",
+  "dependencies": {
+    "express": "^4.13.3",
+    "node-wechat": "^0.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "wxserver"
+  },
+  "author": "mengxt",
+  "license": "ISC"
+}
