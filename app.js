@@ -51,7 +51,7 @@ var server = http.createServer(function (req, res) {
     wechat.send(msg);
   });
 
-}).listen(80,function(){
+}).listen(8080,function(){
 	 var host = server.address().address;
   	var port = server.address().port;
   	console.log('Example app listening at http://%s:%s', host, port);
