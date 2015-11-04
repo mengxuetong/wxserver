@@ -1,6 +1,6 @@
 var http = require('http'),
     wechat = require('node-wechat')("mengxt"),
-    express = require('express'),
+    express = require('express');
 var app = express();
 var jsSHA = require('jssha');
 var jsapi_ticket,noncestr,timestamp,url;
