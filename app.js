@@ -1,7 +1,11 @@
 var http = require('http'),
-    wechat = require('node-wechat')("mengxt");
+    wechat = require('node-wechat')("mengxt"),
+    express = require('express'),
+    jsSHA = require('jssha');
+var app = express();
+app.all("*",allRequest);
 
-var server = http.createServer(function (req, res) {
+function allRequest(req,res){
   //检验 token
   wechat.checkSignature(req, res);
   //预处理
@@ -50,9 +54,16 @@ var server = http.createServer(function (req, res) {
     }
     wechat.send(msg);
   });
+}
+app.listen(3030,function(){
+  console.log('Example app listening at port 3030');
+})
 
-}).listen(3030,function(){
-	 var host = server.address().address;
-  	var port = server.address().port;
-  	console.log('Example app listening at http://%s:%s', host, port);
-});
+// var server = http.createServer(function (req, res) {
+  
+
+// }).listen(3030,function(){
+// 	 var host = server.address().address;
+//   	var port = server.address().port;
+//   	console.log('Example app listening at http://%s:%s', host, port);
+// });
