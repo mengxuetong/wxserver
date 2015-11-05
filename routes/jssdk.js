@@ -4,7 +4,7 @@ var http = require('http'),
 	querystring = require('querystring'),
 	express = require('express');
 	router = express.Router();
-
+var bodyParser = require('body-parser');
 	// 输出数字签名对象
 	var responseWithJson = function (res, data) {
 		// 允许跨域异步获取
