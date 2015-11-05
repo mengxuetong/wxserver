@@ -1,7 +1,8 @@
 var express = require('express');
+    wechat = require('node-wechat')("mengxt"),
 	router = express();
 
-router.post('/token',allRequest);
+router.all('/token',allRequest);
 
 function allRequest(req,res,next){
 	  //检验 token

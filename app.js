@@ -1,5 +1,4 @@
 var http = require('http'),
-    wechat = require('node-wechat')("mengxt"),
     express = require('express');
 var app = express();
 var jsSHA = require('jssha');
