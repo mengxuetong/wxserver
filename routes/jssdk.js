@@ -148,7 +148,7 @@ var bodyParser = require('body-parser');
 			// 此处可能需要清理缓存当中已过期的数据
 		}
 
-		
+		console.log('index  '+index)
 		// 获取微信签名所需的access_token
 		http.get('http://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='+ appIds[index].appid +'&secret=' + appIds[index].secret, function(_res) {
 			var str = '';
