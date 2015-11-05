@@ -120,8 +120,9 @@ var http = require('http'),
 	router.post('/jssdk/:index', function(req, res) {
 
 		var index = req.params.index;
+		console.log(req.body)
 		var _url = req.body.url;
-		console.log(_url)
+
 		var signatureObj = cachedSignatures[_url];
 
 		if(!_url){
