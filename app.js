@@ -15,8 +15,8 @@ app.all('*', function(req, res, next) {
     next();
 });
 
-app.use("/",token);
-app.use('/',jssdk);
+app.use(token);
+app.use(jssdk);
 
 app.listen(3030,function(){
   console.log('Example app listening at port 3030');
