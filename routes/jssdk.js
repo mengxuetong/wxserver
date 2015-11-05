@@ -96,7 +96,7 @@ var bodyParser = require('body-parser');
 				var nonceStr = createNonceStr();
 				var ticket = resp.ticket;
 				var signature = calcSignature(ticket, nonceStr, ts, url);
-
+				console.log('meng'+signature);
 				cachedSignatures[url] = {
 					nonceStr: nonceStr
 					,appid: appid
