@@ -78,7 +78,7 @@ var bodyParser = require('body-parser');
 
 	// 获取微信签名所需的ticket
 	var getTicket = function (url, index, res, accessData) {
-		http.get('http://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token='+ accessData.access_token +'&type=jsapi', function(_res){
+		https.get('https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token='+ accessData.access_token +'&type=jsapi', function(_res){
 			var str = '', resp;
 			_res.on('data', function(data){
 				str += data;
@@ -148,7 +148,7 @@ var bodyParser = require('body-parser');
 		}
 
 		// 获取微信签名所需的access_token
-		http.get('http://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='+ appIds[index].appid +'&secret=' + appIds[index].secret, function(_res) {
+		https.get('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='+ appIds[index].appid +'&secret=' + appIds[index].secret, function(_res) {
 			var str = '';
 			_res.on('data', function(data){
 				str += data;
