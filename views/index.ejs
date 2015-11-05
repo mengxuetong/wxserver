@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name ="viewport" content ="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1" />
+   	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<title>微信jssdk认证</title>
+	<script type="text/javascript">
+      var basePath = 'http://mxt.digi-zones.com';
+      $(function(){
+        $.ajax({
+          type: 'POST',
+          url: basePath+'/jssdk/2',
+          dataType: 'json',
+          data: {
+            url: location.href.split('#')[0]
+          }
+          success: function(result){
+            alert(result);
+          }
+        })
+      })	 
+    </script>
+</head>
+<body>
+	   <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+</body>
+</html>

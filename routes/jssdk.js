@@ -118,7 +118,7 @@ var bodyParser = require('body-parser');
 
 	// 通过请求中带的index值来判断是公司运营的哪个公众平台
 	router.post('/jssdk/:index', function(req, res) {
-
+		console.log('jssdk')
 		var index = req.params.index;
 		var _url = req.body.url;
 
