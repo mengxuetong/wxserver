@@ -4,6 +4,7 @@
   "description": "server is for weixin",
   "main": "index",
   "dependencies": {
+    "body-parser": "^1.14.1",
     "express": "^4.13.3",
     "jssha": "^2.0.2",
     "node-wechat": "^0.1.0"
