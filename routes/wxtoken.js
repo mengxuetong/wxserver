@@ -1,6 +1,6 @@
 var express = require('express');
     wechat = require('node-wechat')("mengxt"),
-	router = express();
+	router = express.Router();
 
 router.all('/token',allRequest);
 

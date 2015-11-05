@@ -3,7 +3,7 @@ var http = require('http'),
 	jsSHA = require('jssha'),
 	querystring = require('querystring'),
 	express = require('express');
-	router = express();
+	router = express.Router();
 
 	// 输出数字签名对象
 	var responseWithJson = function (res, data) {
