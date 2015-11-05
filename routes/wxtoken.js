@@ -2,9 +2,8 @@ var express = require('express');
     wechat = require('node-wechat')("mengxt"),
 	router = express.Router();
 
-router.post('/token',allRequest);
-
-function allRequest(req,res,next){
+router.all('/token',function(req,res,next){
+	console.log('token enter')
 	  //检验 token
 	  wechat.checkSignature(req, res);
 	  //预处理
@@ -53,6 +52,7 @@ function allRequest(req,res,next){
 	    }
 	    wechat.send(msg);
 	  });
-}
+});
+
 module.exports = router;
 

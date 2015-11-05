@@ -117,7 +117,7 @@ var http = require('http'),
 	};
 
 	// 通过请求中带的index值来判断是公司运营的哪个公众平台
-	router.post('/jssdk/:index', function(req, res) {
+	router.get('/jssdk/:index', function(req, res) {
 		var index = req.params.index;
 		var _url = req.body.url;
 		var signatureObj = cachedSignatures[_url];
