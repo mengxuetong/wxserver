@@ -1,7 +1,7 @@
 var express = require('express');
 	router = express();
 
-router.all('/token',allRequest);
+router.post('/token',allRequest);
 
 function allRequest(req,res,next){
 	  //检验 token
