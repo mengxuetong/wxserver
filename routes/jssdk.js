@@ -54,7 +54,7 @@ var bodyParser = require('body-parser');
 	// 路径为'xxx/rsx/1'时表示榕树下其它产品的公众帐号
 	// 以此以0,1,2代表数组中的不同公众帐号
 	// 以rsx或其它路径文件夹代表不同公司产品
-	var getAppsInfo = require('/wxconfig'); // 从外部加载app的配置信息
+	var getAppsInfo = require('../wxconfig'); // 从外部加载app的配置信息
 	var appIds = getAppsInfo();
 	/**
 		缓存在服务器的每个URL对应的数字签名对象
