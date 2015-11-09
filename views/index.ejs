@@ -10,10 +10,10 @@
       var basePath = 'http://mxt.digi-zones.com';
       // 微信分享的数据
       var wxData = {
-          title : '好玩的游戏！',
-          desc : '大家快来玩!',
-          link : 'http://xxx',
-          imgUrl : 'http://xxx.png',
+          title : 'Node微信jssdk服务器',
+          desc : '测试一下!',
+          link : 'http://mxt.digi-zones.com',
+          imgUrl : '',
           type: '', 
           dataUrl: '', 
           success: function () {
@@ -32,8 +32,6 @@
             url: location.href.split('#')[0]
           },
           success: function(result){
-            alert(result.signature);
-
             wx.config({
                 debug: true, 
                 appId: result.appid, 
@@ -61,7 +59,6 @@
               alert('error')
             })
             wx.ready(function(){
-              alert('success')
               addWeixinShareListening();
             })
           }
