@@ -84,7 +84,7 @@ var bodyParser = require('body-parser');
 				str += data;
 			});
 			_res.on('end', function(){
-				console.log('return ticket:  ' + str);
+			
 				try{
 					resp = JSON.parse(str);
 				}catch(e){
@@ -95,8 +95,8 @@ var bodyParser = require('body-parser');
 				var ts = createTimeStamp();
 				var nonceStr = createNonceStr();
 				var ticket = resp.ticket;
+				console.log(ticket);
 				var signature = calcSignature(ticket, nonceStr, ts, url);
-				console.log('meng'+signature);
 				cachedSignatures[url] = {
 					nonceStr: nonceStr
 					,appid: appid
@@ -104,7 +104,8 @@ var bodyParser = require('body-parser');
 					,signature: signature
 					,url: url
 				};
-				
+				console.log('send json to client');
+				// 返回json数据到客户端
 				responseWithJson(res, {
 					nonceStr: nonceStr
 					,timestamp: ts
