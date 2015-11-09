@@ -23,7 +23,6 @@
           }
       };
       $(function(){
-      
         $.ajax({
           type: 'POST',
           url: basePath+'/jssdk/1',
@@ -33,7 +32,7 @@
           },
           success: function(result){
             wx.config({
-                debug: true, 
+                debug: false, 
                 appId: result.appid, 
                 timestamp: result.timestamp, 
                 nonceStr: result.nonceStr, 
@@ -65,7 +64,7 @@
         })
       })
       // 分享绑定
-      function addWeixinShareListening () {
+      function addWeixinShareListening (){
           wx.onMenuShareTimeline(wxData);
           wx.onMenuShareAppMessage(wxData);
           wx.onMenuShareQQ(wxData);
@@ -75,6 +74,5 @@
 </head>
 <body>
 	   <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
 </body>
 </html>
