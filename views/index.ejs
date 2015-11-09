@@ -3,11 +3,26 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name ="viewport" content ="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1" />
-   	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+ 	<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 	<title>微信jssdk认证</title>
 	<script type="text/javascript">
       var basePath = 'http://mxt.digi-zones.com';
       $(function(){
+      // 微信分享的数据
+        var wxData = {
+            title : '好玩的游戏！',
+            desc : '大家快来玩!',
+            link : 'http://xxx',
+            imgUrl : 'http://xxx.png',
+            type: '', 
+            dataUrl: '', 
+            success: function () {
+                //分享成功
+               //do something!
+               alert('分享成功')
+            }
+        };
         $.ajax({
           type: 'POST',
           url: basePath+'/jssdk/1',
@@ -16,10 +31,45 @@
             url: location.href.split('#')[0]
           },
           success: function(result){
-            alert(result);
+            alert(result.signature);
+            wx.config({
+                debug: true, 
+                appId: result.appid, 
+                timestamp: result.timestamp, 
+                nonceStr: result.nonceStr, 
+                signature: nonceStr.signature,
+                jsApiList: [
+                  'onMenuShareAppMessage',
+                  'onMenuShareTimeline',
+                  'onMenuShareQQ',
+                  'onMenuShareWeibo',
+                  'onMenuShareQZone',
+                  'startRecord',
+                  'stopRecord',
+                  'onVoiceRecordEnd',
+                  'onVoicePlayEnd',
+                  'playVoice',
+                  'pauseVoice',
+                  'stopVoice',
+                  'uploadImage',
+                  'downloadImage'
+                ]
+            });
+            alert('through')
+            wx.ready(function(){
+              alert('success')
+              addWeixinShareListening();
+            })
           }
         })
-      })	 
+      })
+      // 分享绑定
+      function addWeixinShareListening () {
+          wx.onMenuShareTimeline(wxData);
+          wx.onMenuShareAppMessage(wxData);
+          wx.onMenuShareQQ(wxData);
+          wx.onMenuShareWeibo(wxData);
+      } 
     </script>
 </head>
 <body>
