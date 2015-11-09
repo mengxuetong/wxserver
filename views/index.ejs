@@ -31,13 +31,12 @@
             url: location.href.split('#')[0]
           },
           success: function(result){
-            alert(result.signature);
             wx.config({
                 debug: true, 
                 appId: result.appid, 
                 timestamp: result.timestamp, 
                 nonceStr: result.nonceStr, 
-                signature: nonceStr.signature,
+                signature: result.signature,
                 jsApiList: [
                   'onMenuShareAppMessage',
                   'onMenuShareTimeline',
@@ -49,15 +48,14 @@
                   'onVoiceRecordEnd',
                   'onVoicePlayEnd',
                   'playVoice',
-                  'pauseVoice',
+                  'pauseVoice', 
                   'stopVoice',
                   'uploadImage',
                   'downloadImage'
                 ]
             });
-            alert('through')
             wx.ready(function(){
-              alert('success')
+              alert('ready')
               addWeixinShareListening();
             })
           }
