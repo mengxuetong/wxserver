@@ -8,21 +8,22 @@
 	<title>微信jssdk认证</title>
 	<script type="text/javascript">
       var basePath = 'http://mxt.digi-zones.com';
-      $(function(){
       // 微信分享的数据
-        var wxData = {
-            title : '好玩的游戏！',
-            desc : '大家快来玩!',
-            link : 'http://xxx',
-            imgUrl : 'http://xxx.png',
-            type: '', 
-            dataUrl: '', 
-            success: function () {
-                //分享成功
-               //do something!
-               alert('分享成功')
-            }
-        };
+      var wxData = {
+          title : '好玩的游戏！',
+          desc : '大家快来玩!',
+          link : 'http://xxx',
+          imgUrl : 'http://xxx.png',
+          type: '', 
+          dataUrl: '', 
+          success: function () {
+              //分享成功
+             //do something!
+             alert('分享成功')
+          }
+      };
+      $(function(){
+      
         $.ajax({
           type: 'POST',
           url: basePath+'/jssdk/1',
@@ -31,6 +32,8 @@
             url: location.href.split('#')[0]
           },
           success: function(result){
+            alert(result.signature);
+
             wx.config({
                 debug: true, 
                 appId: result.appid, 
@@ -48,14 +51,17 @@
                   'onVoiceRecordEnd',
                   'onVoicePlayEnd',
                   'playVoice',
-                  'pauseVoice', 
+                  'pauseVoice',
                   'stopVoice',
                   'uploadImage',
                   'downloadImage'
                 ]
             });
+            wx.error(function(){
+              alert('error')
+            })
             wx.ready(function(){
-              alert('ready')
+              alert('success')
               addWeixinShareListening();
             })
           }
@@ -67,7 +73,7 @@
           wx.onMenuShareAppMessage(wxData);
           wx.onMenuShareQQ(wxData);
           wx.onMenuShareWeibo(wxData);
-      } 
+      }   
     </script>
 </head>
 <body>
